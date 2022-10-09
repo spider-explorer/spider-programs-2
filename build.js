@@ -79,7 +79,7 @@ for (var rec of programs)
           Deno.chdir(tmpDir);
           await execute([`${app.dir}/busybox.exe`, "--install", "."]);
         }
-        if (!await fileExists(archive)) await execute(["7z.exe", "a", "-r", "-tzip", archive, "*", "-x!User Data", "-x!profile", "-x!distribution"]);
+        if (!await fileExists(archive)) await execute(["7z.exe", "a", "-r", "-tzip", "-mcu=on", archive, "*", "-x!User Data", "-x!profile", "-x!distribution"]);
         console.log("(1)");
         Deno.chdir(cwd);
         console.log("(2)");
